@@ -1,6 +1,5 @@
 ---
 import user from '../../context/User'
-import Basic from '../buttons/basic.astro'
 const { title } = Astro.props
 
 ---
@@ -9,11 +8,11 @@ const { title } = Astro.props
     <div>
     {
         () => { 
-            if(user.status == true){
+            if(user.status === true){
                 return  (
                 <a class="text-xl" id="logoutButton" data-access="user">Cerrar sesion</a>
                 )
-            } else if(user.status == false){ 
+            } else if(user.status === false){ 
                 return (
                     <a class="text-xl" id="loginButton" >Iniciar Sesion</a>
                     <a class="text-xl" id="registerButton" >Registrarse</a>
@@ -25,8 +24,3 @@ const { title } = Astro.props
     }
     </div>
 </nav>
-
-<script>
-	console.log('im the navbar')
-    //console.log({user}, 'from the navbar')
-</script>

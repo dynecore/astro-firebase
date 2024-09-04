@@ -1,3 +1,3 @@
-const user = { id: undefined, firetoken: undefined, status: undefined }
+const user = { id: undefined, credential: undefined, status: undefined }
 
 export default user

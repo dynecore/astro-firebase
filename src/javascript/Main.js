@@ -1,3 +1,8 @@
-import { user } from '../context/User'
+import { checkUser, DemoLogin } from '../firebase/Auth'
 
-console.log('user logged?', user.status)
+const Main = () => {
+  DemoLogin()
+  checkUser()
+}
+
+export default Main
