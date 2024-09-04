@@ -1,0 +1,32 @@
+---
+import user from '../../context/User'
+import Basic from '../buttons/basic.astro'
+const { title } = Astro.props
+
+---
+<nav class="bg-slate-600 text-white flex justify-between px-4">
+    <h1 class="text-3xl">{ title }</h1>
+    <div>
+    {
+        () => { 
+            if(user.status == true){
+                return  (
+                <a class="text-xl" id="logoutButton" data-access="user">Cerrar sesion</a>
+                )
+            } else if(user.status == false){ 
+                return (
+                    <a class="text-xl" id="loginButton" >Iniciar Sesion</a>
+                    <a class="text-xl" id="registerButton" >Registrarse</a>
+                )
+            } else {
+                return <a class="text-xl" id="loginDisabledButton" >login disabled</a>
+            }
+        }
+    }
+    </div>
+</nav>
+
+<script>
+	console.log('im the navbar')
+    //console.log({user}, 'from the navbar')
+</script>
