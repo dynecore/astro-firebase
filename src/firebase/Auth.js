@@ -1,4 +1,4 @@
-import { getAuth, onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
 import { app } from './Init'
 
 const auth = getAuth(app)
@@ -10,7 +10,15 @@ export const Login = async () => {
 
 export const DemoLogin = async () => {
   try {
-    await signInWithEmailAndPassword(auth, 'hello@world.com', 'Password333')
+    await signInWithEmailAndPassword(auth, 'aira@demo.com', 'password333')
+  } catch (error) {
+    console.log(error.code)
+  }
+}
+
+export const DemoRegister = async () => {
+  try {
+    await createUserWithEmailAndPassword(auth, 'aira@demo.com', 'password333')
   } catch (error) {
     console.log(error.code)
   }
@@ -37,6 +45,8 @@ export const checkUser = async () => {
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error))
+
+      console.log(_user)
     } else {
       console.log('no user')
     }
